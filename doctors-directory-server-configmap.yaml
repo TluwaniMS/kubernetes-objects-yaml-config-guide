@@ -4,4 +4,4 @@ metadata:
   name: doctors-directory-server-configmap
    namespace: doctors-directory
 data:
-  database_host: ''
+  database_host: mongodb-service

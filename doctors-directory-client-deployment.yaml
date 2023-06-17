@@ -21,6 +21,12 @@ spec:
           image: tm63/doctors-directory-react-gql-client
           ports:
             - containerPort: 3000
+          env:
+            - name: REACT_APP_SERVER_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: doctors-directory-client-configmap
+                  key: server_host
 
 ---
 apiVersion: v1
