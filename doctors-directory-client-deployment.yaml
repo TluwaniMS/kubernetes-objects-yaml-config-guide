@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doctors-directory-client-deployment
+  namespace: ''
+  labels:
+    app: doctors-directory-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doctors-directory-client
+  template:
+    metadata:
+      labels:
+        app: doctors-directory-client
+    spec:
+      containers:
+      - name: doctors-directory-client
+        image: tm63/doctors-directory-react-gql-client
+        ports:
+        - containerPort: 3000

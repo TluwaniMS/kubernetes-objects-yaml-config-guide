@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doctors-directory-server-deployment
+  namespace: ''
+  labels:
+    app: doctors-directory-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doctors-directory-server
+  template:
+    metadata:
+      labels:
+        app: doctors-directory-server
+    spec:
+      containers:
+      - name: doctors-directory-server
+        image: tm63/doctors-directory-gql-node-js-server:migration-script-int-commit
+        ports:
+        - containerPort: 5002
