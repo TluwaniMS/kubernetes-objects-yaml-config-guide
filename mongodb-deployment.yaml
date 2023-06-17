@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb-deployment
-  namespace: ''
+  namespace: doctors-directory
   labels:
     app: mongodb
 spec:
@@ -12,6 +12,7 @@ spec:
       app: mongodb
   template:
     metadata:
+      namespace: doctors-directory
       labels:
         app: mongodb
     spec:

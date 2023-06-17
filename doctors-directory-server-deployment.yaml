@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: doctors-directory-server-deployment
-  namespace: ''
+  namespace: doctors-directory
   labels:
     app: doctors-directory-server
 spec:
@@ -12,6 +12,7 @@ spec:
       app: doctors-directory-server
   template:
     metadata:
+      namespace: doctors-directory
       labels:
         app: doctors-directory-server
     spec:
