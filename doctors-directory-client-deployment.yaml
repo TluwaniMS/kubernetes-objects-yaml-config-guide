@@ -37,6 +37,7 @@ metadata:
 spec:
   selector:
     app: doctors-directory-client
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 3000
