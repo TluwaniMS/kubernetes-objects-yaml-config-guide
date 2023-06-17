@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: doctors-directory-client
-          image: tm63/doctors-directory-react-gql-client
+          image: tm63/doctors-directory-react-gql-client:host-env-update-commit
           ports:
             - containerPort: 3000
           env:
