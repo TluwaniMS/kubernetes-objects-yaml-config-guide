@@ -10,48 +10,58 @@ This is a basic Kubernetes practice guide that takes one through configuration, 
 
 ### Setting up the required resources
 
-Create a namespace resource with the specified config in the `doctors-directory-namespace.yaml` file.
+* Create a namespace resource with the specified config in the `doctors-directory-namespace.yaml` file.
 
 ```
 kubectl apply -f doctors-directory-namespace.yaml
 ```
 
-Create a deployment, service and pod resource to spin-up a mongodb instance with the specified config(s) in the `mongodb-deployment.yaml` file
+* Create a deployment, service and pod resource to spin-up a mongodb instance with the specified config(s) in the `mongodb-deployment.yaml` file
 
 ```
 kubectl apply -f mongodb-deployment.yaml
 ```
 
-Create a configMap resource to store the servers non-confidential data (environment variables). 
+* Create a configMap resource to store the servers non-confidential data (environment variables). 
 
 ```
 kubectl apply -f doctors-directory-server-configmap.yaml
 ```
 
-Create a configMap resource to store the clients non-confidential data (environment variables). 
+* Create a configMap resource to store the clients non-confidential data (environment variables). 
 
 ```
 kubectl apply -f doctors-directory-client-configmap.yaml
 ```
 
-Create a deployment, service and pod resource to spin-up a nodejs server instance with the specified config(s) in the `doctors-directory-server-deployment.yaml` file.
+* Create a deployment, service and pod resource to spin-up a nodejs server instance with the specified config(s) in the `doctors-directory-server-deployment.yaml` file.
 
 ```
 kubectl apply -f doctors-directory-server-deployment.yaml
 ```
 
-Create a deployment, service and pod resource to spin-up a react client instance with the specified config(s) in the `doctors-directory-client-deployment.yaml` file.
+* Create a deployment, service and pod resource to spin-up a react client instance with the specified config(s) in the `doctors-directory-client-deployment.yaml` file.
 
 ```
 kubectl apply -f doctors-directory-client-deployment.yaml
 ```
 
+* Define a context for the kubectl client to work in the `doctors-directory` namespace.
 
+```
+kubectl config set-context doctors-dir --namespace=doctors-directory --cluster=minikube --user=minikube
+```
+
+* Switch to the doctors-dir namespace.
 
 ```
 kubectl config use-context doctors-dir
 ```
 
+* Spinup a URL to connect to the client service.
+
 ```
-kubectl config set-context doctors-dir --namespace=doctors-directory --cluster=minikube --user=minikube
+minikube service doctors-directory-client-service --namespace=doctors-directory
 ```
+
+
