@@ -58,10 +58,14 @@ kubectl config set-context doctors-dir --namespace=doctors-directory --cluster=m
 kubectl config use-context doctors-dir
 ```
 
-* Spinup a URL to connect to the client service.
+* Forward the ports running on your client and server apps in the cluster to your localhost
 
 ```
-minikube service doctors-directory-client-service --namespace=doctors-directory
+kubectl port-forward deployment/doctors-directory-server-deployment 5002:5002
+```
+
+```
+kubectl port-forward deployment/doctors-directory-client-deployment 3000:3000
 ```
 
 
