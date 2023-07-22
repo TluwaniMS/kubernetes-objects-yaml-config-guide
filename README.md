@@ -67,5 +67,9 @@ kubectl port-forward deployment/doctors-directory-server-deployment 5002:5002
 ```
 kubectl port-forward deployment/doctors-directory-client-deployment 3000:3000
 ```
+* View the application on
 
+```
+http://localhost:3000
+```
 
